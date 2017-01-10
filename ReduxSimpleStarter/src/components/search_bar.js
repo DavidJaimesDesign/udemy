@@ -14,7 +14,7 @@ class SearchBar extends Component {
     render() {
         //onChange is a default react event handler and let's you do some pretty cool stuff
         return (
-            <div> 
+            <div className="search-bar"> 
                 <input
                     value = {this.state.term}
                     onChange={event => this.setState({ term: event.target.value})}
