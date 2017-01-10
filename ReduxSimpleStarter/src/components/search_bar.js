@@ -10,14 +10,19 @@ class SearchBar extends Component {
         super(props);//component already has a constructor method we can call the method from the parent using super
 
         this.state = {term: ''}//whenever we use state we initilize it by creating an object and assigning it to this.state, the object will have things we want to record
-    }    
+    }   
+   
+    onInputChange(term) {
+        this.setState({term});
+        this.props.onSearchTermChange(term);
+    } 
     render() {
         //onChange is a default react event handler and let's you do some pretty cool stuff
         return (
             <div className="search-bar"> 
                 <input
                     value = {this.state.term}
-                    onChange={event => this.setState({ term: event.target.value})}
+                    onChange={event => this.onInputChange(event.target.value)}
                 />
             </div>
         );
